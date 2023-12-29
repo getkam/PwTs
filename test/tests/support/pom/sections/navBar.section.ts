@@ -5,7 +5,7 @@ export default class Navbar {
   public constructor(private readonly page: Page) {}
 
   //LOCATORS
-  navbarLogo = () => this.page.locator('[test-id="navbar-logo"]');
+  private navbarLogo = this.page.locator('[test-id="navbar-logo"]');
   navbarSignIn = () => this.page.locator('[test-id="navbar-signin"]');
   navbarSignUp = () =>  this.page.locator('[test-id="navbar-signup"]');
   navbarProfileName = () =>  this.page.locator('[test-id="navbar-profile-name"]');
@@ -14,6 +14,9 @@ export default class Navbar {
   homeBtn = () =>  this.page.locator('[test-id="navbar-home"]');
   
   //ACTIONS
+  public async getNavbarLogo(){
+   return await this.navbarLogo
+  }
   public async clickRegisterButton(){
     await this.navbarSignUp().click();
   }

@@ -9,8 +9,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('has title', async function ({ page }){
-  const navbar = new Navbar(page);
-   expect(await navbar.navbarLogo()).toBeVisible();
+   expect(await page.title()).toContain('Conduit');
 });
 
 test('registration', async function ({ page }) {

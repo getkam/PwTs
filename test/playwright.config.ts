@@ -26,9 +26,9 @@ export default defineConfig({
     },
     use: {
         headless: false,
-        screenshot: 'on',
-        trace: 'on',
-        video: 'on',
+        //screenshot: 'on-first-retry',
+        trace: 'on-first-retry',
+        video: 'on-first-retry',
         launchOptions: {
             //slowMo: settings.slow_mo,
             timeout: 30_000,

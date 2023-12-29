@@ -86,12 +86,13 @@ test('gets the json from api and adds a new tag', async ({ page }) => {
 });
 
 test('gets the json from api and adds a new article', async ({ page }) => {
+  const articleTitle = `newTitle-${Utils.randomNumber}`;
   await page.route('*/**/api/articles?limit=10&offset=0', async route => {
     const response = await route.fetch();
     const json = await response.json();
     json.articles.push({
       slug: 'newSlug',
-      title: `newTitle-${Utils.randomNumber}`,
+      title: articleTitle,
       description: 'Omnis perspiciatis qui quia commodi sequi modi. Nostrum quam aut cupiditate est facere omnis possimus. Tenetur similique nemo illo soluta molestias facere quo. Ipsam totam facilis delectus nihil quidem soluta vel est omnis.',
       body: 'Quia quo iste et aperiam voluptas consectetur a omnis et. Facere beatae delectus ut. Possimus voluptas perspiciatis voluptatem nihil sint praesentium. Sint est nihil voluptates nesciunt voluptatibus temporibus blanditiis.Officiis voluptatem earum sed. Deserunt ab porro similique est accusamus id enim aut suscipit.Soluta reprehenderit error nesciunt odit veniam sed. Dolore optio qui aut ab. Aut minima provident eius repudiandae a quibusdam in nisi quam.',
       tagList: ['newTag', 'tag2', 'tag3', 'tag4'],
@@ -108,9 +109,9 @@ test('gets the json from api and adds a new article', async ({ page }) => {
     });
     await route.fulfill({ response, json});
   });
-  await page.goto(await config.get('url'));
+ 
   await login(page, await config.get('email'), await config.get('password'));
-  await page.reload();
-  await expect(page.getByText('newTitle', { exact: true })).toBeVisible();
+  await page.waitForRequest('**/api/articles*');
+  await expect(page.getByText(articleTitle, { exact: true })).toBeVisible();
 });
 
