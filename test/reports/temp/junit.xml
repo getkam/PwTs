@@ -1,0 +1,15 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.7621659999999997">
+<testsuite name="login.spec.ts" timestamp="2023-12-28T22:58:52.251Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.88" errors="0">
+<testcase name="login" classname="login.spec.ts" time="1.88">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../reports/temp/chromium/login-login-chromium/video.webm]]
+
+[[ATTACHMENT|../reports/temp/chromium/login-login-chromium/test-finished-1.png]]
+
+[[ATTACHMENT|../reports/temp/chromium/login-login-chromium/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

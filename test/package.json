@@ -1,0 +1,25 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretty:check": "npx prettier . --check",
+    "pretty:write": "npx prettier . --write",
+    "test": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/config": "^3.3.3",
+    "@types/node": "^20.10.5",
+    "allure-commandline": "^2.25.0",
+    "allure-playwright": "^2.10.0",
+    "config": "^3.3.9",
+    "dotenv": "^16.3.1",
+    "prettier": "^3.1.1",
+    "ts-node": "^10.9.2"
+  }
+}

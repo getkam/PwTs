@@ -1,0 +1,9 @@
+node_modules
+playwright-report
+test-results
+.gitignore
+package-lock.json
+package.json
+playwright.config.ts
+prettierrc
+tsconfig.json

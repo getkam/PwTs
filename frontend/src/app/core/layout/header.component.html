@@ -1,0 +1,67 @@
+<nav class="navbar navbar-light">
+  <div class="container">
+    <a class="navbar-brand" test-id="navbar-logo" routerLink="/">conduit</a>
+
+    <!-- Show this for logged out users -->
+    <ul *appShowAuthed="false" class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <a class="nav-link" test-id="navbar-home" routerLink="/"> Home </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" test-id="navbar-signin" routerLink="/login" routerLinkActive="active">
+          Sign in
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" test-id="navbar-signup" routerLink="/register" routerLinkActive="active">
+          Sign up
+        </a>
+      </li>
+    </ul>
+
+    <!-- Show this for logged in users -->
+    <ul *appShowAuthed="true" class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/"
+          test-id="navbar-home"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Home
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" test-id="navbar-new-article" routerLink="/editor" routerLinkActive="active">
+          <i class="ion-compose"></i>&nbsp;New Article
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" test-id="navbar-settings" routerLink="/settings" routerLinkActive="active">
+          <i class="ion-gear-a"></i>&nbsp;Settings
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="currentUser$ | async as currentUser">
+        <a
+          class="nav-link"
+          [routerLink]="['/profile', currentUser.username]"
+          test-id="navbar-profile-name"
+          routerLinkActive="active"
+        >
+          <img
+            [src]="currentUser.image"
+            *ngIf="currentUser.image"
+            class="user-pic"
+          />
+          {{ currentUser.username }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
