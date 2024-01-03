@@ -1,7 +1,7 @@
 import { login } from "./support/pom/utils/login.page.utils";
 import config from "config";
 import { test, expect } from "@playwright/test";
-import Navbar from "./support/pom/sections/navBar.section";
+import Navbar from "./support/pom/components/navBar.component";
 import Utils from "./support/pom/utils/common.utils";
 
 interface UserLoginRequest {
