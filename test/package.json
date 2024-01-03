@@ -6,7 +6,10 @@
   "scripts": {
     "pretty:check": "npx prettier . --check",
     "pretty:write": "npx prettier . --write",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "test:login": "npx playwright test tests/login.spec.ts",
+    "test:api": "npx playwright test tests/apiTests.spec.ts",
+    "show-report": "npx playwright show-report reports/temp/html"
   },
   "keywords": [],
   "author": "",
