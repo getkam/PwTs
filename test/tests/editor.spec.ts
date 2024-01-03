@@ -1,5 +1,5 @@
 import Editor from "./support/pom/pages/articleEditor.page";
-import Navbar from "./support/pom/sections/navBar.section";
+import Navbar from "./support/pom/components/navBar.component";
 import Utils from "./support/pom/utils/common.utils";
 import { Article } from "./support/pom/utils/article.type";
 import { test, expect } from "./support/pom/fixtures/fixtures";
