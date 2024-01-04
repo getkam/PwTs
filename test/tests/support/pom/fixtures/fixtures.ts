@@ -8,9 +8,9 @@ import Utils from "../utils/common.utils";
 
 export const prefillArticle: Article = {
   title: `Pre-filled Article -${Utils.randomNumber}`,
-  description: "Test Description",
-  body: "Test Body",
-  tags: ["test", "test2"],
+  description: "",
+  body: "",
+  tags: ["", ""],
 };
 
 export const test = base.extend({
@@ -23,7 +23,7 @@ export const test = base.extend({
       title: prefillArticle.title,
       description: "Test Description",
       body: "Test Body",
-      tags: ["test", "test2"],
+      tags: ["test1", "test2", "test3"],
     };
     const navbar = new Navbar(page);
     const editor = new Editor(page);
