@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Page, expect } from "@playwright/test";
 
 export class ArticlePreview {
   //CONSTRUCTOR
@@ -13,7 +13,7 @@ export class ArticlePreview {
   private articleBody = this.page.locator(".article-content");
   private listOfTags = this.page.locator(".tag-list li").elementHandles();
   private articleAuthor = this.page.locator(".article-actions .author");
-  private articleCreationDate = this.page.locator(".article-actions .author");
+  private articleCreationDate = this.page.locator(".article-actions .date");
   private articleEditButton = this.page.locator(".article-actions .ion-edit");
   private articleDeleteButton = this.page.locator(
     ".article-actions .ion-trash-a"
@@ -56,6 +56,12 @@ export class ArticlePreview {
       if (text) tags.push(text);
     }
     return tags;
+  }
+  public async assertTags(tags: string[]) {
+    const listOfTags = await this.listOfTags;
+    for (const tag of listOfTags) {
+      expect(await tag.textContent()).toContain(tags[listOfTags.indexOf(tag)]);
+    }
   }
   public async getArticleAuthor() {
     return await this.articleAuthor.textContent();
