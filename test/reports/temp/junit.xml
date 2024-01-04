@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="5.295115">
-<testsuite name="article.spec.ts" timestamp="2024-01-03T08:12:55.565Z" hostname="chromium" tests="1" failures="0" skipped="0" time="3.981" errors="0">
-<testcase name="delete article" classname="article.spec.ts" time="3.981">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="4.049187">
+<testsuite name="editor.spec.ts" timestamp="2024-01-04T12:38:14.826Z" hostname="chromium" tests="1" failures="0" skipped="0" time="3.115" errors="0">
+<testcase name="create new article" classname="editor.spec.ts" time="3.115">
 </testcase>
 </testsuite>
 </testsuites>
