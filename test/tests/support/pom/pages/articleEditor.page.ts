@@ -1,16 +1,16 @@
-import { Page } from 'playwright';
-import { Article } from '../utils/article.type';
+import { Page } from "playwright";
+import { Article } from "../utils/article.type";
 
 export default class Editor {
   //CONSTRUCTOR
   public constructor(private readonly page: Page) {}
-  
+
   //LOCATORS
   private titleInput = this.page.locator('[test-id="editor-title"]');
   private descInput = this.page.locator('[test-id="editor-description"]');
   private bodyInput = this.page.locator('[test-id="editor-body"]');
   private publishBtn = this.page.locator('[test-id="editor-submit"]');
-  private tagsInput = this.page.locator('[test-id="editor-tags"]');
+  private tagsInput = this.page.locator('[placeholder="Enter tags"]');
 
   //ACTIONS
   private async typeArticleTitle(title: string) {
@@ -24,10 +24,10 @@ export default class Editor {
   }
   private async typeArticleTags(tags: readonly string[]) {
     if (!tags) return;
-    tags.forEach(async (tag) => {
+    for (const tag of tags) {
       await this.tagsInput.fill(tag);
       await this.page.keyboard.press("Enter");
-    });
+    }
   }
   private async clickPublishArticleButton() {
     await this.publishBtn.click();
